@@ -5,6 +5,21 @@
 #include "le_afd.h"
 #include "afd.h"
 
+/* 
+ * arquivo_para_afd (AFD)
+ * --------------------------------------------------------------------
+ * Funcao que recebe um caminho com um .txt no formato padrao de AFD e
+ * retira as informacoes correspondentes para armazena-las na estrutura
+ * de dados criada.
+ * --------------------------------------------------------------------
+ * Parametros:
+ * 
+ * caminho_arquivo (*char): caminho/diretorio + nome do arquivo do AFD
+ * --------------------------------------------------------------------
+ * Retorno:
+ * 
+ * afd (AFD): estrutura de dados do AFD preenchida
+ */
 AFD arquivo_para_afd(char *caminho_arquivo)
 {
     FILE *arquivo;
@@ -87,6 +102,11 @@ AFD arquivo_para_afd(char *caminho_arquivo)
             indice++;
         }
     }
+
+    afd.tamanhos[0] = numero_estados;
+    afd.tamanhos[1] = tamanho_alfabeto;
+    afd.tamanhos[2] = numero_transicoes;
+    afd.tamanhos[3] = numero_finais;
 
     fclose(arquivo);
 
