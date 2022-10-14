@@ -99,22 +99,22 @@ AFD arquivo_para_afd(char *caminho_arquivo)
 
     printf("\n[AFDTOOL] Estados:\n");
     for(int i = 0; i < numero_estados; i++)
-        printf("\t%s", afd.estados[i]);
+        printf("\t  %s", afd.estados[i]);
 
     printf("\n[AFDTOOL] Alfabeto:\n");
     for(int i = 0; i < tamanho_alfabeto; i++)
-        printf("\t%s", afd.estados[i]);
+        printf("\t  %s", afd.alfabeto[i]);
 
     printf("\n[AFDTOOL] Transicoes:\n");
     for(int i = 0; i < numero_transicoes; i++)
-        printf("\t%s", afd.transicoes[i]);
+        printf("\t  %s", afd.transicoes[i]);
 
     printf("\n[AFDTOOL] Estado Inicial:\n");
-    printf("\t%s", afd.estado_inicial);
+    printf("\t  %s", afd.estado_inicial);
 
     printf("\n[AFDTOOL] Estados Finais:\n");
     for(int i = 0; i < numero_finais; i++)
-        printf("\t%s", afd.estados_finais[i]);
+        printf("\t  %s", afd.estados_finais[i]);
 
     return afd;
 }
