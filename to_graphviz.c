@@ -6,6 +6,19 @@
 #include "afd.h"
 #include "utils.h"
 
+/* 
+ * afd_para_dot (void)
+ * ------------------------------------------------------------------------------
+ * Funcao que recebe um AFD e um caminho (arquivo) de saida e escreve um
+ * arquivo .dot contendo os estados e transicoes do AFD em um formato que
+ * possa ser visualizado com a ferramenta graphviz.
+ * ------------------------------------------------------------------------------
+ * Parametros:
+ * 
+ * afd (struct afd): afd representado na estrutura de dados definida
+ * caminho_saida (*char): string contendo a pasta + nome do arquivo de saida .dot
+ * ------------------------------------------------------------------------------
+ */
 void afd_para_dot(AFD afd, char *caminho_saida)
 {
     FILE *arquivo;
