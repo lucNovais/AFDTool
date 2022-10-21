@@ -1,7 +1,7 @@
 DEPS = afd.h
 
 afdtool: main.o le_afd.o to_graphviz.o utils.o
-	gcc main.o le_afd.o to_graphviz.o -o afdtool
+	gcc main.o le_afd.o to_graphviz.o utils.o -o afdtool
 
 main.o: main.c
 	gcc -c main.c

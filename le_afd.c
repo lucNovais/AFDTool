@@ -4,6 +4,7 @@
 
 #include "le_afd.h"
 #include "afd.h"
+#include "utils.h"
 
 /* 
  * arquivo_para_afd (AFD)
@@ -91,6 +92,7 @@ AFD arquivo_para_afd(char *caminho_arquivo)
             }
             else if(quantidades_lidas == 2)
             {
+                strcat(linha, " ");
                 strcpy(afd.transicoes[indice], linha);
             }
             else

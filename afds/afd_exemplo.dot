@@ -1,28 +1,14 @@
 digraph finite_state_machine {
-	fontname='Helvetica,Arial,sans-serif'
-	node [fontname='Helvetica,Arial,sans-serif']
-	edge [fontname='Helvetica,Arial,sans-serif']
+	fontname="Helvetica,Arial,sans-serif"
+	node [fontname="Helvetica,Arial,sans-serif"]
+	edge [fontname="Helvetica,Arial,sans-serif"]
 	rankdir=LR;
-	node [shape = doublecircle];àiN·ý par
-;	node [shape = circle];
-	par 0 impar
- [label = 'Label'];
-	par 0 impar
- [label = 'Label'];
-par 1 impar
- [label = 'Label'];
-	par 0 impar
- [label = 'Label'];
-par 1 impar
- [label = 'Label'];
-impar 0 par
- [label = 'Label'];
-	par 0 impar
- [label = 'Label'];
-par 1 impar
- [label = 'Label'];
-impar 0 par
- [label = 'Label'];
-impar 1 par
- [label = 'Label'];
+	node [shape = doublecircle]; par nulo;
+	node [shape = circle];
+	par -> impar [label = "0"];
+	par -> impar [label = "1"];
+	impar -> par [label = "0"];
+	impar -> par [label = "1"];
+	par -> nulo [label = "2"];
+	impar -> nulo [label = "2"];
 }

@@ -1,14 +1,19 @@
-2
+3
 par
 impar
-2
+nulo
+3
 0
 1
-4
+2
+6
 par 0 impar
 par 1 impar
 impar 0 par
 impar 1 par
+par 2 nulo
+impar 2 nulo
 par
-1
+2
 par
+nulo
