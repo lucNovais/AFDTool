@@ -3,12 +3,10 @@ digraph finite_state_machine {
 	node [fontname="Helvetica,Arial,sans-serif"]
 	edge [fontname="Helvetica,Arial,sans-serif"]
 	rankdir=LR;
-	node [shape = doublecircle]; par nulo;
+	node [shape = doublecircle]; par;
 	node [shape = circle];
 	par -> impar [label = "0"];
 	par -> impar [label = "1"];
 	impar -> par [label = "0"];
 	impar -> par [label = "1"];
-	par -> nulo [label = "2"];
-	impar -> nulo [label = "2"];
 }
