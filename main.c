@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
     if(strcmp(operacao, DOT) == 0)
         afd_para_dot(afd, caminho_saida);
     else if(strcmp(operacao, RECONHECER) == 0)
-        reconhecer_palavra(afd, caminho_palavras);
+        reconhecer_palavra(afd, caminho_palavras, caminho_saida);
 
     return 0;
 }
