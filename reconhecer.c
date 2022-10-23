@@ -5,6 +5,21 @@
 #include "afd.h"
 #include "utils.h"
 
+/* 
+ * afd_para_dot (void)
+ * ----------------------------------------------------------------------------------
+ * Funcao que recebe um AFD, um caminho (arquivo) contendo palavras a serem testadas
+ * e um caminho de saida para resultado da execucao. A partir das palavras no arquivo
+ * de entrada, executa o AFD sob cada uma delas e diz se essa palavra e reconhecida
+ * na linguagem do AFD.
+ * ----------------------------------------------------------------------------------
+ * Parametros:
+ * 
+ * afd (struct afd): afd representado na estrutura de dados definida
+ * caminho_palavras (*char): string contendo o arquivo de entrada com as palavras
+ * caminho_saida (*char): string contendo a pasta + nome do arquivo de saida .txt
+ * ----------------------------------------------------------------------------------
+ */
 void reconhecer_palavra(AFD afd, char *caminho_palavras, char *caminho_saida)
 {
     FILE *arquivo;
