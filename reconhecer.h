@@ -3,6 +3,6 @@
 
 #include "afd.h"
 
-void reconhecer_palavra(AFD afd, char *caminho_palavras);
+void reconhecer_palavra(AFD afd, char *caminho_palavras, char *caminho_saida);
 
 #endif

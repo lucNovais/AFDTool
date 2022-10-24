@@ -52,8 +52,13 @@ int main(int argc, char *argv[])
     if (strcmp(operacao, DOT) == 0)
         afd_para_dot(afd, caminho_saida);
     else if (strcmp(operacao, RECONHECER) == 0)
+<<<<<<< HEAD
         reconhecer_palavra(afd, caminho_palavras);
     else if (strcmp(operacao, COMPLEMENTO) == 0)
         complemento_afd(afd, caminho_saida);
+=======
+        reconhecer_palavra(afd, caminho_palavras, caminho_saida);
+
+>>>>>>> ed5e69924442f41fda5eba71b8e5163536e2cff3
     return 0;
 }
