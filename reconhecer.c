@@ -5,7 +5,7 @@
 #include "afd.h"
 #include "utils.h"
 
-/* 
+/*
  * afd_para_dot (void)
  * ----------------------------------------------------------------------------------
  * Funcao que recebe um AFD, um caminho (arquivo) contendo palavras a serem testadas
@@ -14,7 +14,7 @@
  * na linguagem do AFD.
  * ----------------------------------------------------------------------------------
  * Parametros:
- * 
+ *
  * afd (struct afd): afd representado na estrutura de dados definida
  * caminho_palavras (*char): string contendo o arquivo de entrada com as palavras
  * caminho_saida (*char): string contendo a pasta + nome do arquivo de saida .txt
@@ -73,7 +73,7 @@ void reconhecer_palavra(AFD afd, char *caminho_palavras, char *caminho_saida)
     char *palavra_atual = palavras[0];
     char *aux = malloc(MAX_CARACTERES * sizeof(char));
     char *estado_atual = malloc(MAX_CARACTERES * sizeof(char));
-    
+
     int tamanho_palavra = strlen(palavra_atual);
 
     printf("\n[AFDTOOL] Escrevendo arquivo de palavras reconhecidas...\n");
@@ -110,7 +110,7 @@ void reconhecer_palavra(AFD afd, char *caminho_palavras, char *caminho_saida)
             aux[strcspn(aux, "\n")] = 0;
             estado_atual[strcspn(estado_atual, "\n")] = 0;
 
-            if(strcmp(estado_atual, aux) == 0)
+            if (strcmp(estado_atual, aux) == 0)
             {
                 fprintf(arquivo, "%d\n", 1);
                 break;

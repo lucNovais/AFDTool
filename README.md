@@ -7,6 +7,7 @@ Projeto desenvolvido para a disciplina de Fundamentos Teóricos da Computação.
 
 - Lucas Malek Madureira Oliveira
 - Lucas Novais da Silva
+- Renato Junior de Moura
 - Thiago Rodrigues Souza
 
 ## Requisitos

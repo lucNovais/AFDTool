@@ -6,7 +6,7 @@
 #include "afd.h"
 #include "utils.h"
 
-/* 
+/*
  * arquivo_para_afd (AFD)
  * --------------------------------------------------------------------
  * Funcao que recebe um caminho com um .txt no formato padrao de AFD e
@@ -14,11 +14,11 @@
  * de dados criada.
  * --------------------------------------------------------------------
  * Parametros:
- * 
+ *
  * caminho_arquivo (*char): caminho/diretorio + nome do arquivo do AFD
  * --------------------------------------------------------------------
  * Retorno:
- * 
+ *
  * afd (AFD): estrutura de dados do AFD preenchida
  */
 AFD arquivo_para_afd(char *caminho_arquivo)
@@ -39,58 +39,57 @@ AFD arquivo_para_afd(char *caminho_arquivo)
     printf("\n[AFDTOOL] Lendo arquivo...");
     arquivo = fopen(caminho_arquivo, "r");
 
-    if(arquivo == NULL)
+    if (arquivo == NULL)
     {
         printf("\n[AFDTOOL] Arquivo de entrada invalido!\n");
         exit(1);
     }
-
 
     printf("\n[AFDTOOL] Lendo estados, alfabeto e transicoes...");
 
     char linha[MAX_CARACTERES];
 
     int indice = 0;
-    while(fgets(linha, MAX_CARACTERES, arquivo))
+    while (fgets(linha, MAX_CARACTERES, arquivo))
     {
-        if(lendo_quantidade)
+        if (lendo_quantidade)
         {
             quantidade = atoi(linha);
             numero_estados = quantidade;
             lendo_quantidade = 0;
         }
-        else if(!quantidade)
+        else if (!quantidade)
         {
             quantidades_lidas++;
 
-            switch(quantidades_lidas)
+            switch (quantidades_lidas)
             {
-                case 1:
-                    quantidade = atoi(linha);
-                    tamanho_alfabeto = quantidade;
-                case 2:
-                    quantidade = atoi(linha);
-                    numero_transicoes = quantidade;
-                case 3:
-                    strcpy(afd.estado_inicial, linha);
-                case 4:
-                    quantidade = atoi(linha);
-                    numero_finais = quantidade;
+            case 1:
+                quantidade = atoi(linha);
+                tamanho_alfabeto = quantidade;
+            case 2:
+                quantidade = atoi(linha);
+                numero_transicoes = quantidade;
+            case 3:
+                strcpy(afd.estado_inicial, linha);
+            case 4:
+                quantidade = atoi(linha);
+                numero_finais = quantidade;
             }
 
             indice = 0;
         }
         else
         {
-            if(quantidades_lidas == 0)
+            if (quantidades_lidas == 0)
             {
                 strcpy(afd.estados[indice], linha);
             }
-            else if(quantidades_lidas == 1)
+            else if (quantidades_lidas == 1)
             {
                 strcpy(afd.alfabeto[indice], linha);
             }
-            else if(quantidades_lidas == 2)
+            else if (quantidades_lidas == 2)
             {
                 strcat(linha, " ");
                 strcpy(afd.transicoes[indice], linha);
@@ -120,22 +119,22 @@ AFD arquivo_para_afd(char *caminho_arquivo)
     printf("\n[AFDTOOL] Numero de estados finais: %d\n", numero_finais);
 
     printf("\n[AFDTOOL] Estados:\n");
-    for(int i = 0; i < numero_estados; i++)
+    for (int i = 0; i < numero_estados; i++)
         printf("\t  %s", afd.estados[i]);
 
     printf("\n[AFDTOOL] Alfabeto:\n");
-    for(int i = 0; i < tamanho_alfabeto; i++)
+    for (int i = 0; i < tamanho_alfabeto; i++)
         printf("\t  %s", afd.alfabeto[i]);
 
     printf("\n[AFDTOOL] Transicoes:\n");
-    for(int i = 0; i < numero_transicoes; i++)
+    for (int i = 0; i < numero_transicoes; i++)
         printf("\t  %s", afd.transicoes[i]);
 
     printf("\n[AFDTOOL] Estado Inicial:\n");
     printf("\t  %s", afd.estado_inicial);
 
     printf("\n[AFDTOOL] Estados Finais:\n");
-    for(int i = 0; i < numero_finais; i++)
+    for (int i = 0; i < numero_finais; i++)
         printf("\t  %s", afd.estados_finais[i]);
 
     return afd;

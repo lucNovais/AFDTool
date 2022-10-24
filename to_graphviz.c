@@ -6,7 +6,7 @@
 #include "afd.h"
 #include "utils.h"
 
-/* 
+/*
  * afd_para_dot (void)
  * ------------------------------------------------------------------------------
  * Funcao que recebe um AFD e um caminho (arquivo) de saida e escreve um
@@ -14,7 +14,7 @@
  * possa ser visualizado com a ferramenta graphviz.
  * ------------------------------------------------------------------------------
  * Parametros:
- * 
+ *
  * afd (struct afd): afd representado na estrutura de dados definida
  * caminho_saida (*char): string contendo a pasta + nome do arquivo de saida .dot
  * ------------------------------------------------------------------------------
@@ -42,7 +42,7 @@ void afd_para_dot(AFD afd, char *caminho_saida)
 
     strcpy(estados_finais_linha, "");
 
-    for(int i = 0; i < afd.tamanhos[3]; i++)
+    for (int i = 0; i < afd.tamanhos[3]; i++)
     {
         strcat(estados_finais_linha, " ");
         strcpy(buffer, afd.estados_finais[i]);
@@ -58,14 +58,14 @@ void afd_para_dot(AFD afd, char *caminho_saida)
     fputs(";", arquivo);
     fputs("\n\tnode [shape = circle];\n", arquivo);
 
-    char **transicoes = malloc(3 * sizeof(char*));
+    char **transicoes = malloc(3 * sizeof(char *));
 
-    for(int i = 0; i < 3; i++)
+    for (int i = 0; i < 3; i++)
         transicoes[i] = malloc(100 * sizeof(char));
 
     strcpy(buffer, "");
 
-    for(int i = 0; i < afd.tamanhos[2]; i++)
+    for (int i = 0; i < afd.tamanhos[2]; i++)
     {
         transicoes = quebra_transicoes(afd.transicoes[i]);
 
