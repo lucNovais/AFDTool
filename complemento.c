@@ -23,6 +23,7 @@
 void complemento_afd(AFD afd_entr, char *caminho_saida)
 {
     char novos_estados_finais[MAX_LINHAS][MAX_CARACTERES];
+    char *buffer = malloc(MAX_CARACTERES * sizeof(char));
     /* flag aponta os casos em que um valor deve ir para o novo vetor de estados finais */
     int flag;
     /* contador referencia as posições no novo vetor de estados finais */
@@ -40,39 +41,48 @@ void complemento_afd(AFD afd_entr, char *caminho_saida)
                 flag = 0;
             }
         }
-        if (flag = 1) /*Estado não se encontra no conjunto de estados finais. Ou seja, agora será estado final*/
+        if (flag == 1) /* Estado não se encontra no conjunto de estados finais. Ou seja, agora será estado final */
         {
             strcpy(novos_estados_finais[contador], afd_entr.estados[i]);
+            contador++;
         }
     }
 
-    afd_entr.tamanhos[3] = sizeof(novos_estados_finais) / sizeof(char);
+    afd_entr.tamanhos[3] = contador;
 
     arquivo = fopen(caminho_saida, "w");
-    fputs(afd_entr.tamanhos[0], arquivo);
 
+    fprintf(arquivo, "%d\n", afd_entr.tamanhos[0]);
     for (int i = 0; i < afd_entr.tamanhos[0]; i++)
     {
-        fputs(afd_entr.estados[i], arquivo);
+        strcpy(buffer, afd_entr.estados[i]);
+        buffer[strcspn(buffer, "\n")] = 0;
+        fprintf(arquivo, "%s\n", buffer);
     }
 
-    fputs(afd_entr.tamanhos[1], arquivo);
+    fprintf(arquivo, "%d\n", afd_entr.tamanhos[1]);
     for (int i = 0; i < afd_entr.tamanhos[1]; i++)
     {
-        fputs(afd_entr.alfabeto[i], arquivo);
+        strcpy(buffer, afd_entr.alfabeto[i]);
+        buffer[strcspn(buffer, "\n")] = 0;
+        fprintf(arquivo, "%s\n", buffer);
     }
 
-    fputs(afd_entr.tamanhos[2], arquivo);
+    fprintf(arquivo, "%d\n", afd_entr.tamanhos[2]);
     for (int i = 0; i < afd_entr.tamanhos[2]; i++)
     {
-        fputs(afd_entr.transicoes[i], arquivo);
+        strcpy(buffer, afd_entr.transicoes[i]);
+        buffer[strcspn(buffer, "\n")] = 0;
+        fprintf(arquivo, "%s\n", buffer);
     }
 
-    fputs(afd_entr.tamanhos[3], arquivo);
+    fprintf(arquivo, "%d\n", afd_entr.tamanhos[3]);
     for (int i = 0; i < afd_entr.tamanhos[3]; i++)
     {
-        fputs(novos_estados_finais[i], arquivo);
+        fprintf(arquivo, "%s", novos_estados_finais[i]);
     }
+
+    fclose(arquivo);
 
     return 0;
 }
